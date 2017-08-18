@@ -1,36 +1,44 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-native-easy-grid'
-import { Container, Content, Text, Button, Card, CardItem, Body } from 'native-base'
+import { Container, Content, Text, Button, Card, CardItem, Body, Icon } from 'native-base'
 import { StyleSheet } from 'react-native'
+import { Actions } from 'react-native-router-flux'
+import { connect } from 'react-redux'
+
+import { loadChallenge } from '../actions/challenges'
 
 let styles = {
   content: {
     backgroundColor: '#ecf0f1',
     justifyContent: 'center',
-    alignItems: 'center',
+    alignContent: 'center',
   },
   button: {
-    width: 300,
+    width: null,
   },
 }
 
-export default class Challenges extends Component {
+class Challenges extends Component {
   render() {
     return (
       <Container>
         <Content>
           <Grid>
-            <Card>
+            <Card style={styles.content}>
               <CardItem>
-                <Body>
-                  <Button
-                    style={styles.button}
-                    onPress={() => {
-                      console.log('Challenge Button Pressed')
-                    }}>
-                    <Text>Start Challenge 1</Text>
-                  </Button>
-                </Body>
+                <Button
+                  success
+                  iconLeft
+                  style={styles.button}
+                  onPress={() => {
+                    this.props.dispatch(loadChallenge(1))
+                    Actions.questions()
+                    console.log('Challenge Button Pressed')
+                  }}
+                >
+                  <Icon name="bookmarks" />
+                  <Text>Start Challenge 1</Text>
+                </Button>
               </CardItem>
             </Card>
           </Grid>
@@ -39,3 +47,5 @@ export default class Challenges extends Component {
     )
   }
 }
+
+export default connect()(Challenges)

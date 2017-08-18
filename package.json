@@ -33,6 +33,7 @@
     "redux-persist": "^4.8.3",
     "redux-thunk": "^2.2.0",
     "remote-redux-devtools": "^0.5.12",
-    "remote-redux-devtools-on-debugger": "^0.8.2"
+    "remote-redux-devtools-on-debugger": "^0.8.2",
+    "underscore.string": "^3.3.4"
   }
 }

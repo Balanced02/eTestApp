@@ -20,7 +20,7 @@ let styles = {
 class SideBar extends Component {
   render() {
     return (
-      <Content style={{ backgroundColor: '#ffffff' }}>
+      <Content style={{ backgroundColor: '#2c3e50' }}>
         <Thumbnail
           style={{
             alignSelf: 'center',

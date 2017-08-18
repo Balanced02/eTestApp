@@ -16,6 +16,8 @@ let styles = {
     backgroundColor: '#27ae60',
     justifyContent: 'center',
     alignItems: 'center',
+    alignContent: 'center',
+    flexDirection: 'column'
   },
 }
 
@@ -25,12 +27,15 @@ export default class Home extends Component {
       <Container>
         <Grid>
           <Row size={60} style={styles.top}>
-            <Image source={logo} />
+            <Image style={{
+              margin: 20,
+              alignContent: 'center'
+            }} source={logo} />
           </Row>
 
           <Row size={40} style={styles.bottom}>
-            <Text>Welcome to eTestApp</Text>
-            <Button rounded info>
+            <Text style={{fontSize: 20, marginBottom: 20, fontFamily: 'Roboto'}}>Welcome to eTestApp</Text>
+            <Button full rounded info onPress={() => Actions.challenges()}>
               <Text>Take a Challenge</Text>
             </Button>
           </Row>
