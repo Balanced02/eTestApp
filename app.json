@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "19.0.0"
+   "name": "eTest JAMB App",
+   "icon": "./assets/images/logo.png",
+   "version": "1.0.0",
+   "slug": "https://expo.io/@flyg101/etestapp",
+   "sdkVersion": "19.0.0",
+   "ios": {
+     "bundleIdentifier": "com.thehashhub.etestapp"
+   },
+   "android": {
+     "package": "com.thehashhub.etestapp"
+   }
   }
 }
