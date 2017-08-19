@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { StatusBar, Platform } from 'react-native'
 import { connect } from 'react-redux'
-import { Router, Scene } from 'react-native-router-flux'
+// import { Router, Scene } from 'react-native-router-flux'
+import { DrawerNavigator } from 'react-navigation'
 import {
   Drawer,
   Text,
@@ -15,23 +16,25 @@ import {
   Button,
   Title,
   Header,
+  Container,
 } from 'native-base'
 
-import { closeDrawer } from './actions/drawer'
+import { closeDrawer, openDrawer } from './actions/drawer'
 
 import Home from './components/Home'
 import SideBar from './components/SideBar'
 import Challenges from './components/Challenges'
 import Question from './components/Question'
+import ShowScore from './components/ShowScore'
 
-const RouterWithRedux = connect()(Router)
+// const RouterWithRedux = connect()(Router)
 
-class AppHeader extends Component {
+class MyAppHeader extends Component {
   render() {
     return (
       <Header>
         <Left>
-          <Button transparent onPress={() => this.props.openDrawer()}>
+          <Button transparent>
             <Icon name="menu" />
           </Button>
         </Left>
@@ -48,6 +51,29 @@ class AppHeader extends Component {
   }
 }
 
+const AppHeader = connect()(MyAppHeader)
+
+const ReactNav = DrawerNavigator(
+  {
+    Home: {
+      screen: Home,
+    },
+    Challenges: {
+      screen: Challenges,
+    },
+    Question: {
+      screen: Question,
+    },
+    ShowScore: {
+      screen: ShowScore,
+    },
+  },
+  {
+    contentComponent: SideBar,
+    initialRouteName: 'Home',
+  }
+)
+
 class Navigator extends Component {
   closeDrawer = () => {
     this.drawer._root.close()
@@ -58,30 +84,11 @@ class Navigator extends Component {
 
   render() {
     return (
-      <Drawer
-        ref={ref => {
-          this.drawer = ref
-        }}
-        content={<SideBar navigator={this.navigator} />}
-        onClose={() => this.closeDrawer()}
-        type="overlay"
-        tweenDuration={150}
-        tapToClose
-        acceptPan={false}
-        openDrawerOffset={0.2}
-        panCloseMask={0.2}
-        negotiatePan
-      >
+      <Container>
         <StatusBar backgroundColor="#2ecc71" barStyle="light-content" />
-        <AppHeader openDrawer={this.openDrawer.bind(this)} />
-        <RouterWithRedux>
-          <Scene key="root">
-            <Scene key="home" component={Home} />
-            <Scene key="challenges" component={Challenges} />
-            <Scene key="questions" component={Question} />
-          </Scene>
-        </RouterWithRedux>
-      </Drawer>
+        <AppHeader />
+        <ReactNav />
+      </Container>
     )
   }
 }

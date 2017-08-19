@@ -5,6 +5,7 @@ export const PREV_QUESTION = 'PREV_QUESTION'
 export const END_CHALLENGE = 'END_CHALLENGE'
 export const GOTO_QUESTION = 'GOTO_QUESTION'
 export const SELECT_OPTION = 'SELECT_OPTION'
+export const CALC_SCORE = 'CALC_SCORE'
 
 export const loadChallenge = id => {
   return {
@@ -51,3 +52,11 @@ export const selectOption = (number, option) => {
     number,
   }
 }
+
+
+export const calcScore = () => {
+  return {
+    type: CALC_SCORE,
+  }
+}
+

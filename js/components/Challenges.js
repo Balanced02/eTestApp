@@ -1,11 +1,24 @@
 import React, { Component } from 'react'
 import { Grid, Row, Col } from 'react-native-easy-grid'
-import { Container, Content, Text, Button, Card, CardItem, Body, Icon } from 'native-base'
+import {
+  Container,
+  Content,
+  Text,
+  Button,
+  Card,
+  CardItem,
+  Body,
+  Icon,
+  List,
+  ListItem,
+  Right,
+} from 'native-base'
 import { StyleSheet } from 'react-native'
-import { Actions } from 'react-native-router-flux'
+// import { Actions } from 'react-native-router-flux'
 import { connect } from 'react-redux'
 
 import { loadChallenge } from '../actions/challenges'
+import { challenges } from '../reducers/challenges'
 
 let styles = {
   content: {
@@ -13,9 +26,10 @@ let styles = {
     justifyContent: 'center',
     alignContent: 'center',
   },
-  button: {
-    width: null,
-  },
+  text: {
+    color: '#000',
+    paddingRight: 5
+  }
 }
 
 class Challenges extends Component {
@@ -24,23 +38,26 @@ class Challenges extends Component {
       <Container>
         <Content>
           <Grid>
-            <Card style={styles.content}>
-              <CardItem>
-                <Button
-                  success
-                  iconLeft
-                  style={styles.button}
-                  onPress={() => {
-                    this.props.dispatch(loadChallenge(1))
-                    Actions.questions()
-                    console.log('Challenge Button Pressed')
-                  }}
-                >
-                  <Icon name="bookmarks" />
-                  <Text>Start Challenge 1</Text>
-                </Button>
-              </CardItem>
-            </Card>
+            <List style={styles.content}>
+              {challenges.map((challenge, i) => {
+                return (
+                  <ListItem key={i}>
+                      <Text
+                        style={styles.text}
+                        onPress={() => {
+                          this.props.dispatch(loadChallenge(i))
+                          this.props.navigation.navigate('Question')
+                        }}
+                      >
+                        {challenge.challengeName}
+                      </Text>
+                    <Right>
+                      <Icon name='md-arrow-dropright' />
+                    </Right>
+                  </ListItem>
+                )
+              })}
+            </List>
           </Grid>
         </Content>
       </Container>
