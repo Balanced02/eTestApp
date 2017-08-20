@@ -4,3 +4,4 @@ npm-debug.*
 *.log
 json
 .DS_Store
+build

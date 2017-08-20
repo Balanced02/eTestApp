@@ -20,6 +20,14 @@ import egeg2 from '../../assets/json/egeg2'
 import egeg3 from '../../assets/json/egeg3'
 import egeg4 from '../../assets/json/egeg4'
 import egeg5 from '../../assets/json/egeg5'
+import epcm1 from '../../assets/json/epcm1'
+import ebpc1 from '../../assets/json/ebpc1'
+import ebpc2 from '../../assets/json/ebpc2'
+import epcm2 from '../../assets/json/epcm2'
+import ebpc3 from '../../assets/json/ebpc3'
+import ebpc4 from '../../assets/json/ebpc4'
+import epcm3 from '../../assets/json/epcm3'
+
 
 import {
   LOAD_CHALLENGE,
@@ -33,6 +41,13 @@ import {
 } from '../actions/challenges'
 
 export let challenges = [
+  ebpc3,
+  ebpc4,
+  epcm1,
+  epcm2,
+  ebpc1,
+  epcm3,
+  ebpc2,
   ebcm1,
   ebcm2,
   ebcm3,

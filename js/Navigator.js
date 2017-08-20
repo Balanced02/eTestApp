@@ -32,10 +32,11 @@ import ShowScore from './components/ShowScore'
 class MyAppHeader extends Component {
   render() {
     return (
-      <Header>
+      <Header style={{
+      }} >
         <Left>
           <Button transparent>
-            <Icon name="menu" />
+            <Icon name="ios-menu" />
           </Button>
         </Left>
         <Body>

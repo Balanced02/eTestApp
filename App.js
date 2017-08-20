@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { Provider } from 'react-redux'
 import { StyleProvider } from 'native-base'
-import * as Expo from 'expo'
+// import * as Expo from 'expo'
 
 import Main from './js/index'
 
@@ -21,18 +21,16 @@ export default class App extends React.Component {
     }
   }
 
-  async componentWillMount() {
-    await Expo.Font.loadAsync({
-      Roboto: require('native-base/Fonts/Roboto.ttf'),
-      Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf'),
-      Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
-    })
-    this.setState({ ready: true })
-  }
+  // async componentWillMount() {
+  //   await Expo.Font.loadAsync({
+  //     Roboto: require('native-base/Fonts/Roboto.ttf'),
+  //     Ionicons: require('@expo/vector-icons/fonts/Ionicons.ttf'),
+  //     Roboto_medium: require('native-base/Fonts/Roboto_medium.ttf'),
+  //   })
+  //   this.setState({ ready: true })
+  // }
   render() {
-    if (!this.state.ready) {
-      return <Expo.AppLoading />
-    }
+    
     return (
       <StyleProvider style={getTheme(variables)}>
         <Provider store={this.state.store}>

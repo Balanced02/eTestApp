@@ -68,7 +68,7 @@ export default (variables = variable) => {
       marginLeft: null,
     },
       'NativeBase.CheckBox': {
-        marginLeft: -10,
+        marginLeft: 1,
       },
       '.first': {
         '.itemHeader': {

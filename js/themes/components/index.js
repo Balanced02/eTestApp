@@ -139,7 +139,7 @@ export default (variables = variable) => {
     'NativeBase.ListItem': {
       ...listItemTheme(variables),
       'NativeBase.CheckBox': {
-        marginLeft: -10,
+        marginLeft: 1,
         marginRight: 10,
       },
       'NativeBase.Text': {

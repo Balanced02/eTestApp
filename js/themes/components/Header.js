@@ -94,7 +94,7 @@ export default (variables = variable) => {
           },
           paddingHorizontal: null,
           paddingLeft: (platform === 'ios') ? 10 : null,
-        },
+        }, 
         paddingHorizontal: (platform === 'ios') ? undefined : null,
         width: (platform === 'ios') ? undefined : 0,
         height: (platform === 'ios') ? undefined : 0,

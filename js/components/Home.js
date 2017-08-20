@@ -42,7 +42,7 @@ export default class Home extends Component {
           </Row>
 
           <Row size={40} style={styles.bottom}>
-            <Text style={{ fontSize: 20, marginBottom: 20, fontFamily: 'Roboto' }}>
+            <Text style={{ fontSize: 20, marginBottom: 20 }}>
               Welcome to eTestApp
             </Text>
             <Button full rounded info onPress={() => this.props.navigation.navigate('Challenges')}>

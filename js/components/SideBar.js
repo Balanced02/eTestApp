@@ -36,13 +36,13 @@ class SideBar extends Component {
         <ListItem
           button
           onPress={() => {
-            Actions.home()
+            this.props.navigation.navigate('Home')
             this.props.closeDrawer()
           }}
           icon
           style={styles.links}>
           <Left>
-            <Icon active name="home" />
+            <Icon active name="md-home" />
           </Left>
           <Body>
             <Text>Home</Text>
@@ -52,13 +52,13 @@ class SideBar extends Component {
         <ListItem
           button
           onPress={() => {
-            Actions.challenges()
+            this.props.navigation.navigate('Challenges')
             this.props.closeDrawer()
           }}
           icon
           style={styles.links}>
           <Left>
-            <Icon active name="bulb" />
+            <Icon active name="ios-bulb" />
           </Left>
           <Body>
             <Text>Challenges</Text>
@@ -68,13 +68,13 @@ class SideBar extends Component {
         <ListItem
           button
           onPress={() => {
-            Actions.scores()
+            this.props.navigation.navigate('ShowScore')
             this.props.closeDrawer()
           }}
           icon
           style={styles.links}>
           <Left>
-            <Icon active name="pie" />
+            <Icon active name="ios-pie" />
           </Left>
           <Body>
             <Text>Scores</Text>

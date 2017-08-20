@@ -51,7 +51,7 @@ class ShowScore extends Component {
                 textAlign: 'center'
               }}
             >
-              You Scored {this.props.score} / 400
+              You Scored {this.props.score}
             </Text>
           </Row>
 

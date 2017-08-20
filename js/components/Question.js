@@ -17,7 +17,7 @@ import {
   CheckBox,
 } from 'native-base'
 import { View } from 'react-native'
-import { AppLoading } from 'expo'
+// import { AppLoading } from 'expo'
 import { Grid, Row, Col } from 'react-native-easy-grid'
 import HTMLView from 'react-native-htmlview'
 import {
@@ -40,7 +40,7 @@ let styles = {
 function Option(props) {
   return (
     <ListItem>
-      <CheckBox onPress={props.click} checked={props.checked} color={'green'} />
+      <CheckBox onPress={props.click} checked={props.checked} />
       <Body>
         <HTMLView value={props.text} />
       </Body>
@@ -74,7 +74,7 @@ class Question extends Component {
       let progress = challenge.progress
       let question = challenge.current
       let options = question.answers
-      let title = `${question.title} \n`
+      let title = question.title
       let answer = challenge.answers[progress]
       // console.log(progress, length)
       return (
@@ -152,7 +152,7 @@ class Question extends Component {
         </Container>
       )
     } else {
-      return <AppLoading />
+      return <Text>Loading...</Text>
     }
   }
 }
