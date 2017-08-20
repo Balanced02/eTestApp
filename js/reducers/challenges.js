@@ -1,4 +1,16 @@
 import { stripTags } from 'underscore.string'
+
+import {
+  LOAD_CHALLENGE,
+  START_CHALLENGE,
+  NEXT_QUESTION,
+  PREV_QUESTION,
+  END_CHALLENGE,
+  GOTO_QUESTION,
+  SELECT_OPTION,
+  CALC_SCORE,
+} from '../actions/challenges'
+
 import ebcm1 from '../../assets/json/ebcm1'
 import ebcm2 from '../../assets/json/ebcm2'
 import ebcm3 from '../../assets/json/ebcm3'
@@ -27,34 +39,40 @@ import epcm2 from '../../assets/json/epcm2'
 import ebpc3 from '../../assets/json/ebpc3'
 import ebpc4 from '../../assets/json/ebpc4'
 import epcm3 from '../../assets/json/epcm3'
-
-
-import {
-  LOAD_CHALLENGE,
-  START_CHALLENGE,
-  NEXT_QUESTION,
-  PREV_QUESTION,
-  END_CHALLENGE,
-  GOTO_QUESTION,
-  SELECT_OPTION,
-  CALC_SCORE,
-} from '../actions/challenges'
+import epcm4 from '../../assets/json/epcm4'
+import epcm5 from '../../assets/json/epcm5'
+import ebpc5 from '../../assets/json/ebpc5'
+import emeg1 from '../../assets/json/emeg1'
+import emeg2 from '../../assets/json/emeg2'
+import emea1 from '../../assets/json/emea1'
+import emea2 from '../../assets/json/emea2'
+import emea3 from '../../assets/json/emea3'
+import emea4 from '../../assets/json/emea4'
+import emea5 from '../../assets/json/emea5'
 
 export let challenges = [
   ebpc3,
   ebpc4,
   epcm1,
   epcm2,
-  ebpc1,
   epcm3,
   ebpc2,
   ebcm1,
+  ebpc1,
   ebcm2,
   ebcm3,
   eceg1,
+  epcm4,
+  epcm5,
   eceg2,
   eceg3,
   eceg4,
+  ebpc5,
+  emea1,
+  emea2,
+  emea3,
+  emea4,
+  emea5,
   eecm1,
   eecm2,
   eecm3,
@@ -63,6 +81,8 @@ export let challenges = [
   eegm4,
   eegm5,
   eegm6,
+  emeg1,
+  emeg2,
   egeg1,
   egeg2,
   egeg3,
@@ -106,7 +126,7 @@ export default (challengesReducer = (state = init, action) => {
         ...state,
         loaded: true,
         challenge: challenge.challengeName,
-        current: questions[state.progress],
+        current: questions[0],
         questions,
         answers,
         length,
